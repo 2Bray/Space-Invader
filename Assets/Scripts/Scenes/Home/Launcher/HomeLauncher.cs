@@ -29,7 +29,8 @@ namespace Sapi.SpaceInvader.Home
             _view.SetCloseButtonListener(OnCloseButtonClicked);
             _view.SetBgmButtonListener(OnBgmButtonClicked);
             _view.SetSfxButtonListener(OnSfxButtonClicked);
-
+            _view.SetCreditButtonListener(OnCreditButtonClicked);
+            _view.SetCreditBackButtonListener(OnCreditBackButtonClicked);
             yield return null;
         }
 
@@ -64,6 +65,24 @@ namespace Sapi.SpaceInvader.Home
         {
             _audioController.ToggleMuteSfx();
             _view.UpdateSfxState(_audioController.IsSfxMuted);
+        }
+
+        private void OnCreditButtonClicked()
+        {
+            _view.CreditPanel.SetActive(true);
+            for (int i = 0; i < _view.CreditPanel.transform.childCount; i++)
+            {
+                _view.CreditPanel.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+
+        private void OnCreditBackButtonClicked()
+        {
+            _view.CreditPanel.SetActive(false);
+            for (int i = 0; i < _view.CreditPanel.transform.childCount; i++)
+            {
+                _view.CreditPanel.transform.GetChild(i).gameObject.SetActive(false);
+            }
         }
     }
 }

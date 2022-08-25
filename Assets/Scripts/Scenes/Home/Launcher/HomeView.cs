@@ -12,11 +12,18 @@ namespace Sapi.SpaceInvader.Home
         [SerializeField] private Button _closeButton;
         [SerializeField] private Button _bgmButton;
         [SerializeField] private Button _sfxButton;
+        [SerializeField] private Button _creditButton;
+        [SerializeField] private Button _creditBackButton;
         [SerializeField] private TextMeshProUGUI _bgmText;
         [SerializeField] private TextMeshProUGUI _sfxText;
+        [SerializeField] private GameObject _creditPanel;
+
+        public GameObject CreditPanel { get => _creditPanel; } 
 
         public void SetPlayButtonListener(UnityAction listener) => SetButtonListener(_playButton, listener);
         public void SetCloseButtonListener(UnityAction listener) => SetButtonListener(_closeButton, listener);
+        public void SetCreditButtonListener(UnityAction listener) => SetButtonListener(_creditButton, listener);
+        public void SetCreditBackButtonListener(UnityAction listener) => SetButtonListener(_creditBackButton, listener);
         public void SetBgmButtonListener(UnityAction listener) => SetButtonListener(_bgmButton, listener);
         public void SetSfxButtonListener(UnityAction listener) => SetButtonListener(_sfxButton, listener);
 
